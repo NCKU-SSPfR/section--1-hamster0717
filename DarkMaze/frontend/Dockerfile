@@ -1,6 +1,11 @@
-# TODO: Install the frontend dependency package into the app folder inside the container.
-FROM python:3.11
+FROM python:3.11-slim
 
-RUN pip install --no-cache-dir -r requirements.txt
+WORKDIR /app
 
-CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8088", "--reload"]
+COPY requirements.txt requirements.txt
+
+RUN pip install --no-cache-dir -r requirements.txt uvicorn fastapi
+
+COPY . .
+
+CMD ["python", "-m", "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8088", "--reload"]
