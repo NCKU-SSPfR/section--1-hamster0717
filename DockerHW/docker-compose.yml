@@ -2,3 +2,12 @@ version: '3'
 
 services:
   web:
+    build: ./web
+    container_name: webpage_container
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./web:/app
+    environment:
+      - FLASK_ENV=development
+    restart: always
