@@ -18,4 +18,4 @@ for _ in range(NUM_POINTS):
 # Compute Pi approximation
 estimated_pi = (points_inside_circle / NUM_POINTS) * AREA_MULTIPLIER
 
-print(f"Estimated value of Pi: {estimated_pi}")
+print(f"Estimated value of pi is: {estimated_pi}")
