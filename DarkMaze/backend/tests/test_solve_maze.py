@@ -10,7 +10,7 @@ game_state = {}
 async def login_request():
     """Simulates a frontend login."""
     payload = {"username": USERNAME}
-    
+    global game_state
     async with httpx.AsyncClient() as client:
         response = await client.post(LOGIN_URL, json=payload)
 
@@ -41,12 +41,9 @@ async def move_request(dir):
 @pytest.mark.asyncio
 async def test_integration():
     await login_request()
-    #print(game_state)
     await reset_request()
-    #print(game_state)
     for i in range(5):
         await move_request("down")
-        #print(game_state)
     assert game_state["current_position"] == [1,5]
 
 @pytest.mark.asyncio
