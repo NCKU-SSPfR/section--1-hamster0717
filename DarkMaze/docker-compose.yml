@@ -43,7 +43,7 @@ services:
     depends_on:
       - sonarqube
     environment:
-      - SONAR_HOST_URL=http://sonarqube:9000
+      - SONAR_HOST_URL=http://sonarqube:9001
     volumes:
       - ./backend:/usr/src
       - ./reports:/reports
